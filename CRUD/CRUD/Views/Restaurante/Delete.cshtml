@@ -9,7 +9,6 @@
 
 <h3>Você tem certeza que deseja excluir este restaurante e todos os pratos associados à ele ?</h3>
 <div>
-    <h4>Restaurante</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -26,8 +25,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Excluir" class="btn btn-default" /> |
-            @Html.ActionLink("Voltar", "Index")
+            <input type="button" onclick="location.href = '/Restaurante'" value="Voltar" class="btn-danger" />
+            <input type="submit" value="Excluir" class="btn-success" />
         </div>
     }
 </div>

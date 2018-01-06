@@ -22,3 +22,25 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+.btnExcluir {
+    width: 30px;
+}
+
+
+.btnEditar {
+    width: 20px;
+}
+
+.areaFiltros {
+    padding: 20px;
+    border: 1px solid #bfbfbf;
+    margin-bottom: 50px;
+}
+
+.areaLista {
+    overflow-y: scroll;
+    height: 280px;
+    border: 1px solid #bfbfbf;
+}

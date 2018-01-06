@@ -8,28 +8,74 @@
 <h2>Restaurantes</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+
 </p>
-<table class="table">
-    <tr>
-        <th></th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-    </tr>
+@using (Html.BeginForm("Index", "Restaurante"))
+{
+    <div class="areaFiltros">
+        <h2>Filtros</h2>
+        <label for="txtBusca">Nome do restaurante</label> <br />
+        <input type="text" name="txtBusca" class="form-control" placeholder="Deixe vazio para buscar todos" /><br />
 
-    @foreach (var item in Model)
+        <div class="dvAcoesFiltro">
+            <button type="submit" class="btn-primary">Pesquisar</button>
+            <button type="button" class="btn-success" id="btnNovoRestaurante">Cadastrar Novo Restaurante</button>
+        </div>
+    </div>
+
+}
+<div class="areaLista">
+    @if (Model.Count() == 0)
     {
-        <tr>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
+        <div class="form-group text-center">
+            <label>Nenhum restaurante para exibir</label>
 
-        </tr>
+        </div>
     }
+    else
+    {
+        <table class="table">
+            <tr>
+                <th width="5%"></th>
+                <th width="5%"></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+            </tr>
 
-</table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a href="@Url.Action("Delete", "Restaurante", new { id = item.ID })">
+                            <img class="btnExcluir" src="~/Content/imgs/delete.png" />
+                        </a>
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Restaurante", new { id = item.ID })">
+                            <img class="btnEditar" src="~/Content/imgs/edit.png" />
+                        </a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+    }
+    
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="https://use.fontawesome.com/875d358986.js"></script>
+    <script>
+        $('#btnNovoRestaurante').click(function () {
+
+            location.href = "Restaurante/Create";
+        })
+    </script>
+}
+

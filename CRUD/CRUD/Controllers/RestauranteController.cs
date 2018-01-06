@@ -15,9 +15,9 @@ namespace CRUD.Controllers
         private CRUDContext db = new CRUDContext();
 
         // GET: Restaurante
-        public ActionResult Index()
+        public ActionResult Index(string txtBusca = "")
         {
-            return View(db.Restaurante.ToList());
+            return View(db.Restaurante.Where(c => c.Nome.Contains(txtBusca)).ToList());
         }
 
         // GET: Restaurante/Details/5
@@ -123,5 +123,6 @@ namespace CRUD.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }
