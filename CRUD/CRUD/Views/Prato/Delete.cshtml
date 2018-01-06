@@ -42,8 +42,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Excluir" class="btn btn-default" /> |
-            @Html.ActionLink("Voltar", "Index")
+            <input type="button" onclick="location.href = '/Prato'" value="Voltar" class="btn-danger" />
+            <input type="submit" value="Excluir" class="btn-success" />
         </div>
     }
 </div>
