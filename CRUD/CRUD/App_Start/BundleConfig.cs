@@ -27,6 +27,14 @@ namespace CRUD
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/inputmask").Include(
+                      "~/Scripts/inputmask/inputmask.js",
+                      "~/Scripts/inputmask/jquery.inputmask.js",
+                      "~/Scripts/inputmask/inputmask.extensions.js",
+                      "~/Scripts/inputmask/inputmask.date.extensions.js",
+                      "~/Scripts/inputmask/inputmask.numeric.extensions.js"));
+
         }
     }
 }
